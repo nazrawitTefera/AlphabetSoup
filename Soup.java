@@ -1,3 +1,7 @@
+//nazrawit tefera
+//9/24/2025
+// this program allows adding words,removing letters,generating random letters and inserting the company name into the soup
+
 public class Soup {
     //these are instance variables 
     private String letters;
@@ -29,15 +33,21 @@ public class Soup {
 
     //adds a word to the pool of letters known as "letters"
     public void add(String word){
-
+        letters+=word;
+//precondition- word is a non-null string
+//postconditions-adds the 'word ' to letters
     }
-
+    
 
     //Use Math.random() to get a random character from the letters string and return it.
     public char randomLetter(){
-        return 'a';
+        int length = letters.length();   // get the length
+        int randIndex = (int)(Math.random() * length); // random number
+        char a = letters.charAt(randIndex);            // get that character
+        return a; // return the character
     }
-
+    //Preconditions: letters can not be empty
+    //Postconditions: it returns a random character from letters
 
     //returns the letters currently stored with the company name placed directly in the center of all
     //the letters
