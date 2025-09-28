@@ -52,22 +52,33 @@ public class Soup {
     //returns the letters currently stored with the company name placed directly in the center of all
     //the letters
     public String companyCentered(){
-        return "";
+        int middle=letters.length()/2; //find the middle
+        String firstPart=letters.substring(0,middle);  //letters before middle
+        String secondPart=letters.substring(middle); //letters after middle
+        String result=firstPart+company+secondPart;//puts together
+        return "result";
     }
 
 
-    //should remove the first available vowel from letters. If there are no vowels this method has no effect.
+    //should remove the  available vowel from letters. If there are no vowels this method has no effect.
     public void removeFirstVowel(){
+        String vowels="aeiouAEIOU";//list of vowels
+
         
     }
 
     //should remove "num" letters from a random spot in the string letters. You may assume num never exceeds the length of the string.
     public void removeSome(int num){
+        int start=(nt)Math.random()*(letters.length()-num+1);
+        String before=letters.substring(0,start);
+        string after=letters.substring(start+num);
+        letters=before+after;
 
     }
 
     //should remove the word "word" from the string letters. If the word is not found in letters then it does nothing.
-    public void removeWord(String word){
+    public void removeWord(String word){// pre- word is not null post- if word is inside letters,it will be removed
+        
         
     }
 }
