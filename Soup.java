@@ -61,8 +61,21 @@ public class Soup {
 
 
     //should remove the  available vowel from letters. If there are no vowels this method has no effect.
+    //pre- none
+    //post- letters will lose the first vowelit finds (a,e,i,o,u)
     public void removeFirstVowel(){
-        String vowels="aeiouAEIOU";//list of vowels
+        //we check every vowel
+        int index=letters.indexOf("a");
+        if(index==-1){index=letters.indexOf("e");}
+        if(index==-1){index=letters.indexOf("i");}
+        if(index==-1){index=letters.indexOf("o");}
+        if(index==-1){index=letters.indexOf("u");}
+        if(index != -1){
+            //cut the vowel out
+            String before=letters.substring(0,index);
+            String after=letters.substring(index+1);
+            letters=before+after;
+        }
 
         
     }
@@ -79,6 +92,11 @@ public class Soup {
     //should remove the word "word" from the string letters. If the word is not found in letters then it does nothing.
     public void removeWord(String word){// pre- word is not null post- if word is inside letters,it will be removed
         
-        
+       int index=letters.indexOf(word);//find the word
+       if(index!=-1){
+         String before= letters.substring(0,index);
+         String after=letters.substring(index+word.length());
+         letters=before+after;
+       } 
     }
 }
