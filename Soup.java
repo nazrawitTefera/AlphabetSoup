@@ -5,7 +5,7 @@
 public class Soup {
     //these are instance variables 
     private String letters;
-    private String company;
+    private String company; 
 
     //this is a constructor it sets the instance variables (more on this later in the year)
     public Soup(){
@@ -32,25 +32,28 @@ public class Soup {
 //below are the functions you'll be writing.
 
     //adds a word to the pool of letters known as "letters"
+ //precondition- word is a non null string
+//postconditions-adds the 'word' to letters
     public void add(String word){
         letters+=word;
-//precondition- word is a non-null string
-//postconditions-adds the 'word ' to letters
+
     }
     
 
     //Use Math.random() to get a random character from the letters string and return it.
+    //Preconditions: letters can not be empty
+    //Postconditions: it returns a random character from letters
     public char randomLetter(){
         int length = letters.length();   // get the length
         int randIndex = (int)(Math.random() * length); // random number
         char a = letters.charAt(randIndex);            // get that character
         return a; // return the character
     }
-    //Preconditions: letters can not be empty
-    //Postconditions: it returns a random character from letters
-
+   
     //returns the letters currently stored with the company name placed directly in the center of all
     //the letters
+    //pre-none
+    //post-returns a string with company in the middle of letters
     public String companyCentered(){
         int middle=letters.length()/2; //find the middle
         String firstPart=letters.substring(0,middle);  //letters before middle
@@ -81,17 +84,20 @@ public class Soup {
     }
 
     //should remove "num" letters from a random spot in the string letters. You may assume num never exceeds the length of the string.
+    //pre-num has to be greater than zero
+    //post-removes num letters
     public void removeSome(int num){
-        int start=(nt)Math.random()*(letters.length()-num+1);
+        int start=(int)Math.random()*(letters.length()-num);
         String before=letters.substring(0,start);
-        string after=letters.substring(start+num);
+        String after=letters.substring(start+num);
         letters=before+after;
 
     }
 
     //should remove the word "word" from the string letters. If the word is not found in letters then it does nothing.
-    public void removeWord(String word){// pre- word is not null post- if word is inside letters,it will be removed
-        
+    public void removeWord(String word){
+        // pre- word is not null post- if word is inside letters,it will be removed
+        //post-if word exists in letters, it will be removed once, if not letters stays the same
        int index=letters.indexOf(word);//find the word
        if(index!=-1){
          String before= letters.substring(0,index);
